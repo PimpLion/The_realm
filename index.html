@@ -7,305 +7,843 @@
 <title>THE REALM™ | Pimp Lion</title>
 
 <style>
-    * {
-        box-sizing: border-box;
+
+* {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: #08060a;
+    color: #f5efe5;
+    font-family: Georgia, "Times New Roman", serif;
+    line-height: 1.7;
+}
+
+header {
+    background: #0e0912;
+    border-bottom: 1px solid #9b7725;
+    text-align: center;
+    padding: 28px 15px;
+}
+
+.logo {
+    font-size: 48px;
+}
+
+.logo-title {
+    margin: 0;
+    color: #d2a63b;
+    font-size: 38px;
+    letter-spacing: 6px;
+}
+
+.logo-subtitle {
+    color: #c9a9d8;
+    font-size: 13px;
+    letter-spacing: 3px;
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(9,7,11,.97);
+    border-bottom: 1px solid #49351a;
+    padding: 14px 5px;
+    text-align: center;
+}
+
+nav a {
+    color: #d5ae51;
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin: 0 7px;
+}
+
+nav a:hover {
+    color: white;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 82vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 20px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #4b1b61 0%,
+            #25102f 35%,
+            #0d0811 72%,
+            #08060a 100%
+        );
+}
+
+.hero-crown {
+    font-size: 72px;
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+    margin: 0;
+    font-size: 48px;
+    letter-spacing: 7px;
+    color: #f5efe5;
+}
+
+.hero-title {
+    margin: 5px 0 20px;
+    color: #d2a63b;
+    letter-spacing: 4px;
+    font-size: 15px;
+}
+
+.hero-motto {
+    font-size: 22px;
+    font-style: italic;
+    color: #e0c47c;
+    margin-bottom: 35px;
+}
+
+.enter-button {
+    display: inline-block;
+    padding: 15px 30px;
+    border: 2px solid #c49a35;
+    background: #24102e;
+    color: white;
+    text-decoration: none;
+    letter-spacing: 3px;
+    font-weight: bold;
+}
+
+.enter-button:hover {
+    background: #4c1d62;
+}
+
+/* SECTIONS */
+
+section {
+    padding: 75px 20px;
+}
+
+.content {
+    max-width: 1000px;
+    margin: auto;
+}
+
+.section-title {
+    text-align: center;
+    color: #d0a33b;
+    font-size: 30px;
+    letter-spacing: 4px;
+    margin-bottom: 35px;
+}
+
+.divider {
+    width: 100px;
+    height: 1px;
+    background: #9b7725;
+    margin: 20px auto 35px;
+}
+
+.intro {
+    max-width: 750px;
+    margin: auto;
+    text-align: center;
+    font-size: 19px;
+}
+
+/* CARDS */
+
+.cards {
+    display: grid;
+    grid-template-columns:
+        repeat(auto-fit, minmax(190px, 1fr));
+    gap: 18px;
+    margin-top: 40px;
+}
+
+.card {
+    background: linear-gradient(
+        145deg,
+        #17101b,
+        #0d0910
+    );
+
+    border: 1px solid #513c1d;
+    padding: 28px 18px;
+    text-align: center;
+}
+
+.card h3 {
+    color: #d2a63b;
+    font-size: 17px;
+    letter-spacing: 2px;
+}
+
+.card p {
+    color: #c8bdc9;
+    font-size: 15px;
+}
+
+/* LEGEND */
+
+#legend {
+    background:
+        linear-gradient(
+            rgba(10,7,12,.94),
+            rgba(10,7,12,.98)
+        );
+}
+
+.chapter {
+    border-left: 2px solid #9b7725;
+    padding: 5px 20px;
+    margin: 25px auto;
+    max-width: 800px;
+}
+
+.chapter h3 {
+    color: #d4aa47;
+    margin-bottom: 5px;
+}
+
+/* CODE */
+
+#code {
+    background:
+        linear-gradient(
+            135deg,
+            #100b14,
+            #1b0d24
+        );
+}
+
+.code-rule {
+    max-width: 700px;
+    margin: 14px auto;
+    padding: 14px 20px;
+    border-bottom: 1px solid #3e2b18;
+    text-align: center;
+}
+
+.code-number {
+    color: #a9822c;
+    font-family: monospace;
+}
+
+/* CUTLASS */
+
+.cutlass {
+    border: 1px solid #7a5a20;
+    background: #120b16;
+    padding: 35px 20px;
+    max-width: 750px;
+    margin: auto;
+    text-align: center;
+}
+
+.cutlass-name {
+    color: #d4aa47;
+    font-size: 25px;
+    letter-spacing: 3px;
+}
+
+/* ARCHIVES */
+
+.archive-box {
+    max-width: 700px;
+    margin: auto;
+    background: #0c0b0d;
+    border: 1px solid #443c2d;
+    padding: 30px;
+    font-family: "Courier New", monospace;
+    text-align: left;
+}
+
+.classified {
+    color: #b51e2b;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+/* FOOTER */
+
+footer {
+    border-top: 1px solid #4c381b;
+    text-align: center;
+    padding: 40px 20px;
+    color: #817583;
+    font-size: 13px;
+}
+
+.footer-motto {
+    color: #c39a38;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .logo-title {
+        font-size: 30px;
     }
 
-    body {
-        margin: 0;
-        background: #09070b;
-        color: #f4eee3;
-        font-family: Georgia, serif;
-        text-align: center;
+    .hero h1 {
+        font-size: 38px;
     }
 
-    header {
-        padding: 25px 15px;
-        border-bottom: 1px solid #8d6b20;
-        background: #120b18;
-    }
-
-    .crest {
-        font-size: 48px;
-    }
-
-    h1 {
-        margin: 5px 0;
-        font-size: 42px;
-        letter-spacing: 5px;
-        color: #b78b25;
-    }
-
-    .subtitle {
-        font-size: 16px;
-        letter-spacing: 3px;
-        color: #c9a9d8;
-    }
-
-    nav {
-        padding: 15px 5px;
-        background: #0d0910;
+    .hero-crown {
+        font-size: 60px;
     }
 
     nav a {
-        color: #e0bd62;
-        text-decoration: none;
-        margin: 0 8px;
-        font-size: 14px;
-        letter-spacing: 1px;
-    }
-
-    nav a:hover {
-        color: white;
-    }
-
-    .hero {
-        min-height: 70vh;
-        padding: 90px 20px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        background:
-            radial-gradient(circle, #3a1550 0%, #160b1d 45%, #09070b 100%);
-    }
-
-    .lion {
-        font-size: 100px;
-        margin-bottom: 20px;
-    }
-
-    .hero h2 {
-        font-size: 34px;
-        margin: 10px;
-        color: #f5f0e8;
-    }
-
-    .motto {
-        font-size: 21px;
-        font-style: italic;
-        color: #d6b56a;
-        margin: 10px 0 30px;
-    }
-
-    .enter {
         display: inline-block;
-        padding: 16px 35px;
-        border: 2px solid #b78b25;
-        color: #f5f0e8;
-        text-decoration: none;
-        letter-spacing: 3px;
-        font-weight: bold;
-        background: #281331;
+        margin: 4px 5px;
     }
 
-    .enter:hover {
-        background: #4a1e5f;
+    section {
+        padding: 55px 16px;
     }
 
-    .section {
-        padding: 55px 20px;
-        max-width: 900px;
-        margin: auto;
-    }
+}
 
-    .section h2 {
-        color: #d0a53b;
-        font-size: 28px;
-        letter-spacing: 3px;
-    }
-
-    .section p {
-        font-size: 18px;
-        line-height: 1.7;
-    }
-
-    .cards {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-        gap: 15px;
-        margin-top: 30px;
-    }
-
-    .card {
-        padding: 25px 15px;
-        border: 1px solid #57421b;
-        background: #120d16;
-    }
-
-    .card h3 {
-        color: #c69b32;
-        margin-top: 0;
-    }
-
-    footer {
-        padding: 30px 15px;
-        border-top: 1px solid #57421b;
-        color: #8e7d91;
-        font-size: 13px;
-    }
 </style>
 </head>
 
+
 <body>
 
+
 <header>
-    <div class="crest">🦁</div>
-    <h1>THE REALM™</h1>
-    <div class="subtitle">PIMP LION • THE VELVET SOVEREIGN</div>
+
+    <div class="logo">🦁</div>
+
+    <h1 class="logo-title">
+        THE REALM™
+    </h1>
+
+    <div class="logo-subtitle">
+        PIMP LION • THE VELVET SOVEREIGN
+    </div>
+
 </header>
 
+
 <nav>
-    <a href="#legend">THE LEGEND</a>
-    <a href="#council">THE COUNCIL</a>
-    <a href="#code">THE CODE</a>
-    <a href="#cutlass">THE CUTLASS</a>
-    <a href="#archives">THE ARCHIVES</a>
+
+    <a href="#legend">LEGEND</a>
+
+    <a href="#council">COUNCIL</a>
+
+    <a href="#code">CODE</a>
+
+    <a href="#cutlass">CUTLASS</a>
+
+    <a href="#archives">ARCHIVES</a>
+
 </nav>
 
+
+<!-- HERO -->
+
 <section class="hero">
-    <div class="lion">👑🦁</div>
-    <h2>KINGS RIDE DIFFERENT.</h2>
-    <div class="motto">STYLE IS ETERNAL.</div>
-    <a class="enter" href="#legend">ENTER THE REALM</a>
+
+    <div class="hero-crown">
+        👑
+    </div>
+
+    <h1>
+        THE REALM
+    </h1>
+
+    <div class="hero-title">
+        WHERE STYLE IS LAW
+    </div>
+
+    <div class="hero-motto">
+        KINGS RIDE DIFFERENT.
+    </div>
+
+    <a
+        class="enter-button"
+        href="#legend"
+    >
+        ENTER THE REALM
+    </a>
+
 </section>
 
-<section class="section" id="legend">
-    <h2>THE LEGEND</h2>
 
-    <p>
+<!-- INTRO -->
+
+<section>
+
+<div class="content">
+
+    <h2 class="section-title">
+        WELCOME
+    </h2>
+
+    <div class="divider"></div>
+
+    <p class="intro">
         The Realm existed before the Lion.
         It simply wasn't complete.
     </p>
 
-    <p>
-        In an age when pimping style had fallen into disgrace,
-        one Lion arrived unannounced.
-        Purple velvet. Gold. Swagger.
-        And a hat that demanded respect.
+    <p class="intro">
+        Then came Pimp Lion.
+        Unannounced.
+        Unmatched.
+        In purple velvet.
     </p>
 
-    <p>
-        The heads bowed.
-        The Realm changed forever.
+    <p class="intro">
+        What happened next became history.
     </p>
+
+</div>
+
 </section>
 
-<section class="section" id="council">
-    <h2>THE COUNCIL</h2>
 
-    <p>
+<!-- LEGEND -->
+
+<section id="legend">
+
+<div class="content">
+
+    <h2 class="section-title">
+        THE LEGEND
+    </h2>
+
+    <div class="divider"></div>
+
+
+    <div class="chapter">
+
+        <h3>
+            CHAPTER I — THE AGE BEFORE THE LION
+        </h3>
+
+        <p>
+            The world was in shambles.
+            Pimping style had fallen into disgrace.
+            No hoes were at work.
+            No money was being made.
+            It was a travesty.
+        </p>
+
+        <p>
+            Then a Lion arrived.
+        </p>
+
+    </div>
+
+
+    <div class="chapter">
+
+        <h3>
+            CHAPTER II — THE OVERSEERS
+        </h3>
+
+        <p>
+            Long before Pimp Lion, the Overseers
+            watched the Realm and profited from it.
+            They controlled its wealth, knowledge,
+            traditions and secrets.
+        </p>
+
+        <p>
+            Then the Lion entered unannounced.
+        </p>
+
+    </div>
+
+
+    <div class="chapter">
+
+        <h3>
+            CHAPTER III — THE COUNCIL
+        </h3>
+
+        <p>
+            Five lionesses emerged as the Council.
+            Not an entourage.
+            Not decoration.
+            A genuine power structure.
+        </p>
+
+    </div>
+
+
+    <div class="chapter">
+
+        <h3>
+            CHAPTER IV — THE FIRST DECREES
+        </h3>
+
+        <p>
+            Respect the hat.
+            Gold is never excessive.
+            Luxury is a basic Lion need.
+            Purple is more than a state of mind.
+        </p>
+
+    </div>
+
+
+    <div class="chapter">
+
+        <h3>
+            CHAPTER V — THE CUTLASS
+        </h3>
+
+        <p>
+            PIMP MOBILE I entered the Realm.
+            The circumstances surrounding its
+            acquisition remain classified.
+        </p>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- COUNCIL -->
+
+<section id="council">
+
+<div class="content">
+
+    <h2 class="section-title">
+        THE COUNCIL
+    </h2>
+
+    <div class="divider"></div>
+
+    <p class="intro">
         Five lionesses stand beside the Sovereign.
-        They are not an entourage.
-        They are the Council.
+        Each possesses authority of her own.
     </p>
+
 
     <div class="cards">
-        <div class="card">
-            <h3>THE FIRST LADY</h3>
-            <p>Wisdom • Authority • Counsel</p>
-        </div>
+
 
         <div class="card">
-            <h3>THE TREASURER</h3>
-            <p>Wealth • Strategy • Numbers</p>
+
+            <h3>
+                THE FIRST LADY
+            </h3>
+
+            <p>
+                Wisdom<br>
+                Authority<br>
+                Counsel
+            </p>
+
         </div>
 
-        <div class="card">
-            <h3>THE ARCHIVIST</h3>
-            <p>Knowledge • Secrets • History</p>
-        </div>
 
         <div class="card">
-            <h3>THE ENFORCER</h3>
-            <p>Security • Loyalty • Consequence</p>
+
+            <h3>
+                THE TREASURER
+            </h3>
+
+            <p>
+                Wealth<br>
+                Strategy<br>
+                Numbers
+            </p>
+
         </div>
 
+
         <div class="card">
-            <h3>THE WHISPERER</h3>
-            <p>Influence • Intelligence • Secrets</p>
+
+            <h3>
+                THE ARCHIVIST
+            </h3>
+
+            <p>
+                Knowledge<br>
+                Secrets<br>
+                History
+            </p>
+
         </div>
+
+
+        <div class="card">
+
+            <h3>
+                THE ENFORCER
+            </h3>
+
+            <p>
+                Security<br>
+                Loyalty<br>
+                Consequence
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>
+                THE WHISPERER
+            </h3>
+
+            <p>
+                Influence<br>
+                Intelligence<br>
+                Secrets
+            </p>
+
+        </div>
+
+
     </div>
+
+</div>
+
 </section>
 
-<section class="section" id="code">
-    <h2>THE PIMP CODE</h2>
 
-    <p>
-        Thou shalt not enter a room unnoticed.
-    </p>
+<!-- CODE -->
 
-    <p>
-        Thou shalt respect the hat.
-    </p>
+<section id="code">
 
-    <p>
-        Gold is never excessive.
-    </p>
+<div class="content">
 
-    <p>
-        Velvet is a state of mind.
-    </p>
+    <h2 class="section-title">
+        THE PIMP CODE
+    </h2>
 
-    <p>
-        The Cutlass always has the right of way.
-    </p>
+    <div class="divider"></div>
 
-    <p>
-        Approval is temporary. Style is eternal.
-    </p>
 
-    <p>
-        If Pimp Lion disapproves, reconsider everything.
-    </p>
-</section>
-
-<section class="section" id="cutlass">
-    <h2>THE CUTLASS</h2>
-
-    <p>
-        PIMP MOBILE I
-    </p>
-
-    <p>
-        A legendary purple Cutlass.
-        Gold. Chrome. Wire wheels.
-        Purple interior.
-    </p>
-
-    <p>
-        The circumstances surrounding its acquisition
-        remain classified.
-    </p>
-
-    <p>
-        THE MATTER WAS SETTLED.
-    </p>
-</section>
-
-<section class="section" id="archives">
-    <h2>THE ARCHIVES</h2>
-
-    <p>
-        Some knowledge is public.
-        Some knowledge is classified.
-        Some knowledge should probably remain classified.
-    </p>
-
-    <div class="card">
-        <h3>ARCHIVE ACCESS</h3>
-        <p>STATUS: PUBLIC</p>
-        <p>CLASSIFICATION: REALM</p>
+    <div class="code-rule">
+        <span class="code-number">01</span>
+        — Thou shalt not enter a room unnoticed.
     </div>
+
+    <div class="code-rule">
+        <span class="code-number">02</span>
+        — Thou shalt respect the hat.
+    </div>
+
+    <div class="code-rule">
+        <span class="code-number">03</span>
+        — Gold is never excessive.
+    </div>
+
+    <div class="code-rule">
+        <span class="code-number">04</span>
+        — Velvet is a state of mind.
+    </div>
+
+    <div class="code-rule">
+        <span class="code-number">05</span>
+        — The Cutlass always has the right of way.
+    </div>
+
+    <div class="code-rule">
+        <span class="code-number">06</span>
+        — Approval is temporary. Style is eternal.
+    </div>
+
+    <div class="code-rule">
+        <span class="code-number">07</span>
+        — If Pimp Lion disapproves, reconsider everything.
+    </div>
+
+
+    <p class="intro">
+        <br>
+        RULE #1 OF COOL:
+        <br>
+        If it's fly, there's going to be swatters.
+    </p>
+
+
+    <p class="intro">
+        RULE #2 OF COOL:
+        <br>
+        When rolling in the donk, one MUST have donkey.
+    </p>
+
+</div>
+
 </section>
+
+
+<!-- CUTLASS -->
+
+<section id="cutlass">
+
+<div class="content">
+
+    <h2 class="section-title">
+        THE CUTLASS
+    </h2>
+
+    <div class="divider"></div>
+
+
+    <div class="cutlass">
+
+        <div class="cutlass-name">
+            PIMP MOBILE I
+        </div>
+
+        <p>
+            A legendary 1970s Oldsmobile Cutlass.
+        </p>
+
+        <p>
+            Purple.
+            Gold.
+            Chrome.
+            Wire wheels.
+            Purple interior.
+        </p>
+
+        <p>
+            Gifted by a Qatari prince
+            for undisclosed services.
+        </p>
+
+        <p>
+            The nature of those services
+            remains classified.
+        </p>
+
+        <p>
+            <strong>
+                THE MATTER WAS SETTLED.
+            </strong>
+        </p>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- ARCHIVES -->
+
+<section id="archives">
+
+<div class="content">
+
+    <h2 class="section-title">
+        THE ARCHIVES
+    </h2>
+
+    <div class="divider"></div>
+
+
+    <div class="archive-box">
+
+        <div class="classified">
+            REALM ARCHIVE
+        </div>
+
+        <br>
+
+        ACCESS LEVEL: PUBLIC
+
+        <br><br>
+
+        ARCHIVE STATUS: ACTIVE
+
+        <br><br>
+
+        KNOWN RECORDS:
+
+        <br>
+
+        PL-CUTLASS-001
+
+        <br>
+
+        COUNCIL-001
+
+        <br>
+
+        CODE-001
+
+        <br><br>
+
+        <span class="classified">
+            SOME RECORDS ARE CLASSIFIED.
+        </span>
+
+        <br><br>
+
+        THE ARCHIVIST KNOWS WHY.
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- FINAL -->
+
+<section>
+
+<div class="content">
+
+    <h2 class="section-title">
+        THE REALM HAS SPOKEN.
+    </h2>
+
+    <div class="divider"></div>
+
+    <p class="intro">
+        Approval is temporary.
+        <br>
+        Style is eternal.
+    </p>
+
+</div>
+
+</section>
+
 
 <footer>
+
+    <div class="footer-motto">
+        KINGS RIDE DIFFERENT.
+    </div>
+
     THE REALM™
     <br>
-    THE REALM HAS SPOKEN.
-    <br><br>
-    KINGS RIDE DIFFERENT.
+    THE SOVEREIGN • THE COUNCIL • THE CODE
+
 </footer>
+
 
 </body>
 </html>
